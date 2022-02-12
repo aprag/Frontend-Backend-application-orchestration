@@ -12,33 +12,33 @@ Code Assistance (click on the code if you want to copy it)
 
 To save the page number using expressJS without needing a database connection, initialize your nodeJS application as follows:
 
-  const session= require('express-session');
-    const MongoDBStore= require('connect-mongodb-session') (session);
-    const store = new MongoDBStore ({
-      uri: MONGODB_URI,
-      collection: 'sessions'
-    });
-    app.use(
-      session ({
-        secret: 'secret string',
-        resave: false,
-        saveUninitialized: false,
-        store: store, /* store session data in mongodb */
-        cookie: { /* can add cookie related info here */ }
-      }})
-    );
+    const session= require('express-session');
+      const MongoDBStore= require('connect-mongodb-session') (session);
+      const store = new MongoDBStore ({
+        uri: MONGODB_URI,
+        collection: 'sessions'
+      });
+      app.use(
+        session ({
+          secret: 'secret string',
+          resave: false,
+          saveUninitialized: false,
+          store: store, /* store session data in mongodb */
+          cookie: { /* can add cookie related info here */ }
+        }})
+      );
 
 
 And to use it in responding to user requests: 
 
-app.get('/", function (req, res) {
-  if(!req.session.pageCount ByCurrentUserOrAnyName YouWant)
-    req.session.page Count ByCurrentUserOrAnyName YouWant = 0;
-  req.session.pageCountByCurrentUserOrAnyName YouWant++; 
-  res.send((
-    pageCount: req.session.pageCountByCurrentUseror AnyName You Want
-  });
- });
+    app.get('/", function (req, res) {
+      if(!req.session.pageCount ByCurrentUserOrAnyName YouWant)
+        req.session.page Count ByCurrentUserOrAnyName YouWant = 0;
+      req.session.pageCountByCurrentUserOrAnyName YouWant++; 
+      res.send((
+        pageCount: req.session.pageCountByCurrentUseror AnyName You Want
+      });
+     });
 
 
 
